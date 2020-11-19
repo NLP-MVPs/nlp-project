@@ -6,6 +6,7 @@ import json
 import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
+from acquire import get_gitmds
 
 def basic_body_clean(somestring):
     '''
