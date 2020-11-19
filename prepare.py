@@ -1,4 +1,3 @@
-import acquire
 import pandas as pd 
 import numpy as np
 import unicodedata
@@ -8,7 +7,7 @@ import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 from nltk.corpus import stopwords
 
-def basic_body_clean(bodytext):
+def basic_body_clean(somestring):
     '''
     Takes in body text of a README and performs a basic clean by first converting it to all lower case letters,
     then normalizes the encoding, and removes any character that isn't a letter, number, or a space.
@@ -19,7 +18,7 @@ def basic_body_clean(bodytext):
     basic = re.sub(r"[^a-z0-9'\s]", '', basic)
     return basic
 
-def basic_code_clean(codetext):
+def basic_code_clean(somestring):
     '''
     Takes in the code text and performs a basic clean by first converting it to all lower case letters,
     then normalizes the encoding, and finally removes any character that isn't a letter, number, period (.), or a space.
@@ -28,7 +27,7 @@ def basic_code_clean(codetext):
     '''
     basic = somestring.lower()
     basic = unicodedata.normalize('NFKD', basic).encode('ascii', 'ignore').decode('utf-8', 'ignore')
-    basic = re.sub(r"[^a-z0-9'\s]", '', basic)
+    basic = re.sub(r"[^a-z0-9'\s.]", '', basic)
     return basic
 
 def tokenize(somestring):
@@ -70,17 +69,18 @@ def remove_stopwords(string, extra_words=[], exclude_words=[]):
     string_without_stopwords = ' '.join(filtered_words)
     return string_without_stopwords
 
-def prep_github():
+def prep_gitMDs():
     '''
-    Uses the above helper on the github repo url list to creates to
+    Uses the above helper on the gitMDs repo url list to creates to
     * Applies a basic_body_clean, tokenizizatize, removestop_words, AND lemmatizes fuctions to the readme body text
     and returns the output as df['clean'] 
     * Applies the basic_code_clean, tokenizizatize, and removestop_words fuctions to the top_code and returns it as df['top_code_cleaned]
     * Splits df['top_code_cleaned] into two columns df['top_code_cleaned'] and df['top_percentage_cleaned'] extended
     * returns the df
     '''    
-    github = pd.DataFrame(acquire.get_github())
-    github['clean'] = github['body'].apply(basic_body_clean).apply(tokenize).apply(remove_stopwords).apply(lemmatizes)
-    github['top_code_clean'] = github['top_code'].apply(basic_code_clean).apply(tokenize).apply(remove_stopwords)
-    github['percentage'] = pd.to_numeric(github['percentage'])
-    return github
+    gitMDs = pd.DataFrame(get_gitmds())
+    gitMDs['clean'] = gitMDs['body'].apply(basic_body_clean).apply(tokenize).apply(remove_stopwords).apply(lemmatize)
+    gitMDs['top_code_clean'] = gitMDs['top_code'].apply(basic_code_clean).apply(tokenize).apply(remove_stopwords)
+    gitMDs[['top_code_clean', 'percentage']] = gitMDs['top_code_clean'].str.split(" ",expand=True)
+    gitMDs['percentage'] = pd.to_numeric(gitMDs['percentage'])
+    return gitMDs
