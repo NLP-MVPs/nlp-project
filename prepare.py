@@ -47,20 +47,21 @@ def lemmatize(somestring):
     article_lemmatized = ' '.join(lemmas)
     return article_lemmatized
 
-def remove_stopwords(string, extra_words=[], exclude_words=[]):
+def remove_stopwords(string, keep_words=['no', 'not'], exclude_words=[]):
     '''
     This function takes in a string, removes stop_words from the string, and then returns the results.
-    The fuction also allows for optional arugments extra_words and exclud_words to modify the stop word list
-    * extra_words - a list of words to remove from the standard english stopwords list from nltk.corpus i.e. no or not
+    The fuction also allows for optional arugments keep_words and exclud_words to modify the stop word list
+    * keep_words - a list of words to remove from the standard english stopwords list from nltk.corpus i.e. no or not
     * exclude_words - a list of words to add to the standard english stopwords list from nltk.corpus 
     i.e. ['data', 'science'] to the remove both words when dealing with articles only about data science
+    * By default, keep_words includes no and not
     '''
     # Create stopword_list.
     stopword_list = stopwords.words('english')
-    # Remove 'exclude_words' from stopword_list to keep these in my text.
-    stopword_list = set(stopword_list) - set(exclude_words)
-    # Add in 'extra_words' to stopword_list.
-    stopword_list = stopword_list.union(set(extra_words))
+    # Remove 'keep_words' from stopword_list to keep these in my text.
+    stopword_list = set(stopword_list) - set(keep_words)
+    # Add in 'exclude_words' to stopword_list.
+    stopword_list = stopword_list.union(set(exclude_words))
     # Split words in string.
     words = string.split()
     # Create a list of words from my string with stopwords removed and assign to variable.
