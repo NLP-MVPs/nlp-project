@@ -16,20 +16,24 @@
 - [nlp-project](#nlp-project)
 
 # Goal
-The goal of this project is predict the primary code type used in a GitHub repository based on the text contained within a readme. For this, the team decided to manually find 20 repos who's main coding language, as determined by GitHub and had at least 50%, is of the following type:
+The goal of this project is predict the primary code type used in a GitHub repository based on the text contained within a readme. For this, the team decided to manually find 229 repos who's main coding language, as determined by GitHub and had at least 50%, is of the following type:
   
-  * Ruby
-  * Php
   * Javascript
   * Python
-  * HTML
 
-The team decided to pull it's sample of GitRepos from various news media organizations. 
+We will also deliver the following:
+
+  * A Jupyter notebook containing detailing to every step of this project
+  * A 5-minute presentation about the project, including slides
+
 
 # Wrangle
 
+The team decided to pull it's sample of GitRepos from various news media organizations. 
+
 
 ## Acquire
+
 
 
 ## Prepare
