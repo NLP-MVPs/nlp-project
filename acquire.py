@@ -12,14 +12,14 @@ def get_gitmds():
     * Creates a list of urls from the top 100 most starred repos of both Python and Javascript code
     * Then for each url it scrapes the text from their readmes and code blocks to generate a json dictionary file 
     that looks like {"body":text from the readme, "top_code":the first entry from the code block}.
-    * File name generated is gitMDs.json
+    * File name generated is gitMDsv2.json
     * If file exists it will read the file into a dataframe
     * If the file does not exist it will create the file (outlined above) and will return a dataframe of the file
 
     Note - The initial file creation time is ~33mins due to number of pages being scraped. 
     The file has been included in this repo due to that.
     '''
-    # If the gitMDs.json file exists it will load a datafarme from it
+    # If the gitMDsv2.json file exists it will load a datafarme from it
     file = 'gitMDsv2.json'
     if os.path.isfile(file):
         gitmds = pd.read_json(file)
@@ -110,6 +110,6 @@ def get_gitmds():
         # takes the github dictionary list and turns it into a dataframe
         gitmds = pd.DataFrame(github)
         # takes the newly formed dataframe and saves it as a gitMDs.json
-        gitmds.to_json('gitMDs.json')
+        gitmds.to_json('gitMDsv2.json')
         # returns the dataframe
         return gitmds
