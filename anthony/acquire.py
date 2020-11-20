@@ -16,10 +16,11 @@ def get_gitmds():
     * If file exists it will read the file into a dataframe
     * If the file does not exist it will create the file (outlined above) and will return a dataframe of the file
 
-    Note - The initial file creation time is ~4min and 30secs. The file has been included in this repo due to that.
+    Note - The initial file creation time is ~33mins due to number of pages being scraped. 
+    The file has been included in this repo due to that.
     '''
     # If the gitMDs.json file exists it will load a datafarme from it
-    file = 'gitMDs.json'
+    file = 'gitMDsv2.json'
     if os.path.isfile(file):
         gitmds = pd.read_json(file)
         return gitmds
@@ -85,8 +86,6 @@ def get_gitmds():
                 # combines the base_url and the link text to get the full link
                 urls.append(base_url+link.text)  
 
-        # wait another 3 seconds for good measure        
-        time.sleep(3)     
         # create an empty list to get store the results of scrapping the readme
         github = []
         # for each url in the urls list
@@ -106,7 +105,7 @@ def get_gitmds():
             # appends the result to the gihub list
             github.append(dicob)
             # waits three seconds to avoid getting rate limited
-            time.sleep(3)
+            time.sleep(5)
 
         # takes the github dictionary list and turns it into a dataframe
         gitmds = pd.DataFrame(github)
