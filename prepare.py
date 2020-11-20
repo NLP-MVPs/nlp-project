@@ -75,7 +75,7 @@ def prep_gitMDs():
     '''
     Uses the above helper on the gitMDs repo url list to creates to
     * Applies a basic_body_clean, tokenizizatize, removestop_words, AND lemmatizes fuctions to the readme body text
-    and returns the output as df['clean'] 
+    and returns the output as df['clean']. Also removes any single character left over.
     * Applies the basic_code_clean, tokenizizatize, and removestop_words fuctions to the top_code and returns it as df['top_code_cleaned]
     * Splits df['top_code_cleaned] into two columns df['top_code_cleaned'] and df['top_percentage_cleaned'] extended
     * returns the df
