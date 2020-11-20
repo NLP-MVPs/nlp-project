@@ -73,12 +73,13 @@ def remove_stopwords(string, keep_words=['no', 'not'], exclude_words=[]):
 
 def prep_gitMDs():
     '''
-    Uses the above helper on the gitMDs repo url list to creates to
+    Uses the helper functions contained within the prepare.py module on the gitMDs repo url list from the acquire.py module to create a unified data frame for exploration
     * Applies a basic_body_clean, tokenizizatize, removestop_words, AND lemmatizes fuctions to the readme body text
-    and returns the output as df['clean']. Also removes any single character left over.
-    * Applies the basic_code_clean, tokenizizatize, and removestop_words fuctions to the top_code and returns it as df['top_code_cleaned]
-    * Splits df['top_code_cleaned] into two columns df['top_code_cleaned'] and df['top_percentage_cleaned'] extended
-    * returns the df
+      and returns the output as df['clean'].
+    * Applies the basic_code_clean, tokenizizatize, and removestop_words fuctions to the top_code 
+      and returns it as df['top_code_cleaned]
+    * Splits df['top_code_cleaned] into two columns df['top_code_cleaned'] and df['top_percentage_cleaned']
+    * Returns the gitMDs as a data frame
     '''    
     gitMDs = pd.DataFrame(get_gitmds())
     gitMDs['clean'] = gitMDs['body'].apply(basic_body_clean).apply(tokenize).apply(remove_stopwords).apply(lemmatize)
