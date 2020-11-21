@@ -68,12 +68,12 @@ After wrangling the data we conducted EDA on our train data set in order to glea
 We created a few visualizations to help us identify possible features to use in our model. The most useful visualization we created was a proportional chat that showed the percentage break down of each word's usage by either JavaScript or Python. Doing this allowed us to identify a several words that were used more by each language than the other. We were also able to identify two words that were only used by one language in our test set - react for JavaScript and apikey for Python. From this visualization we created four features: has_top_5_js_words, has_top_5_py_words, has_react, and has_apikey. 
 
 ## Hypothesis Testing & Feature Selection
-After creating our new features we needed to test them to see if they were actually statistically significant feature in our model. We did this by conducting Chi Squared test as all the features were categorical features. Our hypothesis and null hypothesis for each was:
+After creating our new features we needed to test them to see if they were actually statistically significant feature in our model. We did this by conducting [Chi Squared](https://statisticsbyjim.com/hypothesis-testing/chi-square-test-independence-example/) test as all the features were categorical. Our hypothesis and null hypothesis for each was:
 
-* $H0$ - There is not a relationship between <new_feature> and language
-* $Ha$ - There is relationship between <new_feature> and language
+* ![formula](https://render.githubusercontent.com/render/math?math=$H0$) - There is not a relationship between <new_feature> and language
+* ![formula](https://render.githubusercontent.com/render/math?math=$Ha$) - There is relationship between <new_feature> and language
 
-After running each of the 4 new features through a Chi Squared test, we discovered that only has_react had a statistically significant relationship with language
+After running each of the 4 new features through a Chi Squared test, we discovered that only has_react had a statistically significant relationship with language.
 
 # Modeling
   
