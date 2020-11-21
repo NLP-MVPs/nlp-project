@@ -79,10 +79,14 @@ After running each of the 4 new features through a Chi Squared test, we discover
 # Modeling
 For our modeling we will use *accuracy score* to evaluate our models. The reason we are using accuracy is because we are primarily focused on how well our model does at correctly predicting our results, and we are weighing our predictions between JavaScript and Python equally. For additional information for when to use accuracy score vs other evaluation metrics see [Accuracy vs F1 Score](https://medium.com/analytics-vidhya/accuracy-vs-f1-score-6258237beca2)
 
-* Logistic Regression using Has_react feature
-* Bag of words model n-gram 1, 2
-* Bag of words model n-gram 1, 3
-* TFIDF Model  
+*  Has_react feature 
+We choose to use the feature has_react to create a basic Logistic Regression model as it showed to be have a statistically significant relationship on our target language. A Logistic Regression model works by sorting value along a curved line into likelihoods of those values predicting the target and then uses those values to predict the target. 
+
+* Bag-of-words(BoW) model with an n-gram(1, 2) and (1, 3)
+A Bag-of-words model vectorizes words by taking in all the words present in a corpus (a whole dataset) and then counts the number of occurrences of each word in a document (a single row in the dataset). It then sums the counts to assign a document an importance value and uses those values to try and predict outcomes. For our BoW models we looked for unigrams (1), bigrams (2), and trigrams (3) sets of words calculate the value of importance of each document.
+
+* Term Frequency-Inverse Document Frequency (TFID) Model
+Like BoW, TFID also vectorizes our corpus and documents; however, rather than just assigning a total value to a document based on the number of times words appear, it also gives weight to each word by comparing it to the number of times it appears in the entire corpus. It then uses these values to make predictions on the target. 
   
 # Results & Conclusion
 After running through 4 models, we found that the TFIDF model returned the highest accuracy results on our test data set with a 87% accuracy rating. Although Bag-of-words was not our best model it still had an accuracy rating of 80% on test. We would recommend others start modeling with TFIDF rather than Bag-of-Words or has_x_word.  
@@ -94,4 +98,3 @@ We believe that Readmes are an invaluable tool for understanding how code works 
 * **Gather More Data** - Our model may only work well with JavaScript and Python programing languages as our samples only focused on these two languages. We suspect that the methods we used to create our models could be applied to other programing languages; however, more data is required. 
 * **Refine Data Collections Method** - The method we employed to gather our data is fairly time consuming (can take up to 30mins to run). We recommend looking for less time intensive ways to gather the data such as using GitHubs API to gather readmes. 
 * **Additional Modeling** - While our TFIDF model was fairly accurate at predicting which coding language was being used, it is always possible that another model would be even better. After more data has been gathered we believe that additional modeling should be conducted.
-
