@@ -14,6 +14,7 @@
 - [Results & Conclusion](#results--conclusion)
   - [Recommendations](#recommendations)
   - [Next Steps](#next-steps)
+- [Data Dictionary](#data-dictionary)
 
 # Goal
 The goal of this project is predict the primary code type used in a GitHub repository based on the text contained within a readme. For this, the team decided to focus in on repositories who's primary coding language, as determined by GitHub, was either JavaScript or Python. After running various statistical test we discovered that using a TFID combined with a logistic model most accurately predicted the coding languages we used.
@@ -24,9 +25,8 @@ We will deliver the following:
   * A [json](gitMDsv2.json) copy of the data
   * A [Final Project notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/final_notebook.ipynb) that details every step of this project.
   * A 5-minute presentation about the project, including slides.
-  * A [data dictionary](https://github.com/NLP-MVPs/nlp-project/blob/main/datadictionary) for data used in this project.
+  * A [Data Dictionary](#data-dictionary) for data used in this project.
   
-
 # Wrangle
 The following processes are used to wrangle the data into a useable form by first acquiring the data, then preparing the data, and finally pre-processing the data by spiting the data into train, validate, test sets and creating a few pandas series to conduct EDA on.
 
@@ -90,7 +90,7 @@ A Bag-of-words model vectorizes words by taking in all the words present in a co
 
 * Term Frequency-Inverse Document Frequency (TFID) Model
 Like BoW, TFID also vectorizes our corpus and documents; however, rather than just assigning a total value to a document based on the number of times words appear, it also gives weight to each word by comparing it to the number of times it appears in the entire corpus. It then uses these values to make predictions on the target. 
-  
+
 # Results & Conclusion
 After running through 4 models, we found that the TFIDF model returned the highest accuracy results on our test data set with a 87% accuracy rating. Although Bag-of-words was not our best model it still had an accuracy rating of 80% on test. We would recommend others start modeling with TFIDF rather than Bag-of-Words or has_x_word.  
 
@@ -101,3 +101,18 @@ We believe that Readmes are an invaluable tool for understanding how code works 
 * **Gather More Data** - Our model may only work well with JavaScript and Python programing languages as our samples only focused on these two languages. We suspect that the methods we used to create our models could be applied to other programing languages; however, more data is required. 
 * **Refine Data Collections Method** - The method we employed to gather our data is fairly time consuming (can take up to 30mins to run). We recommend looking for less time intensive ways to gather the data such as using GitHubs API to gather readmes. 
 * **Additional Modeling** - While our TFIDF model was fairly accurate at predicting which coding language was being used, it is always possible that another model would be even better. After more data has been gathered we believe that additional modeling should be conducted.
+
+# Data Dictionary 
+| Name | Description |
+|---|---|
+| language | The primary language used by a git repo as determined by GitHub |
+| readme |  The body text of a git repo's readme |
+| has_top_5_js_word | True if the readme contains any of the following words ['native', 'react', 'javascript', '&#9;', 'app'] and False if it does not |
+| has_top_5_py_word | True if the readme contains any of the following words ['yes', 'unknown', 'no', 'github', 'use'] and False if it does not  |
+| has_react | True if the readme contains 'react' False if it does not  |
+| has_apikey | True if the readme contains 'apikey' False if it does not  |
+| has_native | True if the readme contains 'native' False if it does not  |
+| has_unknown | True if the readme contains 'unknown' False if it does not |
+| python | In the frequency tables, the number of times a word appears for Python labeled documents|
+| javaScript | In the frequency table, the number of time a  word appears for JavaScript labeled documents|
+| all | In the frequency table, the number of times a word appears in the entire corpus |
