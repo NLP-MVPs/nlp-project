@@ -79,7 +79,7 @@ After running each of the 4 new features through a Chi Squared test, we discover
 # Modeling
 For our modeling we will use *accuracy score* to evaluate our models. The reason we are using accuracy is because we are primarily focused on how well our model does at correctly predicting our results, and we are weighing our predictions between JavaScript and Python equally. For additional information for when to use accuracy score vs other evaluation metrics see [Accuracy vs F1 Score](https://medium.com/analytics-vidhya/accuracy-vs-f1-score-6258237beca2)
 
-*  Has_react feature 
+* Has_react feature 
 We choose to use the feature has_react to create a basic Logistic Regression model as it showed to be have a statistically significant relationship on our target language. A Logistic Regression model works by sorting value along a curved line into likelihoods of those values predicting the target and then uses those values to predict the target. 
 
 * Bag-of-words(BoW) model with an n-gram(1, 2) and (1, 3)
