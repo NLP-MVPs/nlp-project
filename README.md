@@ -16,13 +16,16 @@
   - [Next Steps](#next-steps)
 
 # Goal
-The goal of this project is predict the primary code type used in a GitHub repository based on the text contained within a readme. For this, the team decided to focus in on repositories who's primary coding language, as determined by GitHub, was either JavaScript or Python. 
+The goal of this project is predict the primary code type used in a GitHub repository based on the text contained within a readme. For this, the team decided to focus in on repositories who's primary coding language, as determined by GitHub, was either JavaScript or Python. After running various statistical test we discovered that using a TFID combined with a logistic model most accurately predicted the coding languages we used.
 
 We will deliver the following:
-  * an [Final Project notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/final_notebook.ipynb) that details every step of this project.
-  * a 5-minute presentation about the project, including slides.
-  * a data dictionary for data used in this project.
-  * this readme.
+  * An [acquire.py](https://github.com/NLP-MVPs/nlp-project/blob/main/acquire.py) module to gather that data.
+  * A [prepare.py](https://github.com/NLP-MVPs/nlp-project/blob/main/prepare.py) module to turn the raw data into a useable form.
+  * A [json](gitMDsv2.json) copy of the data
+  * A [Final Project notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/final_notebook.ipynb) that details every step of this project.
+  * A 5-minute presentation about the project, including slides.
+  * A [data dictionary](https://github.com/NLP-MVPs/nlp-project/blob/main/datadictionary) for data used in this project.
+  
 
 # Wrangle
 The following processes are used to wrangle the data into a useable form by first acquiring the data, then preparing the data, and finally pre-processing the data by spiting the data into train, validate, test sets and creating a few pandas series to conduct EDA on.
