@@ -19,7 +19,7 @@
 The goal of this project is predict the primary code type used in a GitHub repository based on the text contained within a readme. For this, the team decided to focus in on repositories who's primary coding language, as determined by GitHub, was either JavaScript or Python. 
 
 We will deliver the following:
-  * an [MVP notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/MVP.ipynb) that details every step of this project.
+  * an [Final Project notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/final_notebook.ipynb) that details every step of this project.
   * a 5-minute presentation about the project, including slides.
   * a data dictionary for data used in this project.
   * this readme.
@@ -50,7 +50,7 @@ and returns the output as gitMDs['clean'].
 The full code and it's explanation can be found at [prepare.py](https://github.com/NLP-MVPs/nlp-project/blob/main/prepare.py) within this repo.
 
 ## Pre-processing
-After the data is prepared, we drop any columns we will not use in EDA, and then split the data into train, validate, and test sets within the [MVP notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/MVP.ipynb). Lastly, we create a pandas series that contains all words each for python, JavaScript, and both to use in our EDA. The method we use to carry out this task is below.
+After the data is prepared, we drop any columns we will not use in EDA, and then split the data into train, validate, and test sets within the [Final Project notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/final_notebook.ipynb). Lastly, we create a pandas series that contains all words each for python, JavaScript, and both to use in our EDA. The method we use to carry out this task is below.
 
 ```Python
 # create series objects for each top_code_clean that is a string of words joined on spaces in order to make it 1 continious string 
