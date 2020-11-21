@@ -85,13 +85,13 @@ For our modeling we will use *accuracy score* to evaluate our models. The reason
 * TFIDF Model  
   
 # Results & Conclusion
-After running through 4 models, we found that the TFIDF model returned the highest accuracy results on our test data set with a 87% accuracy rating. Although Bag-of-words was not our best model it still had an accuracy rating of 80% on test. we would recommend others start modeling with TFIDF rather than Bag-of-Words or has_x_word.  
+After running through 4 models, we found that the TFIDF model returned the highest accuracy results on our test data set with a 87% accuracy rating. Although Bag-of-words was not our best model it still had an accuracy rating of 80% on test. We would recommend others start modeling with TFIDF rather than Bag-of-Words or has_x_word.  
 
 ## Recommendations 
-We be believe that Readmes are an invaluable tool for understanding how code works and why people should use it. If our NLP modeling is not able to fairly and accurately predict what programming language is being used by the author, it unlikely that others will be able to. As such, we recommend that if people spent a little more time on creating robust readmes, not only would our modeling be more accurate, but it would also increase understanding of code by coders and non-coders alike. 
+We believe that Readmes are an invaluable tool for understanding how code works and why people should use them. If our NLP modeling is not able to fairly and accurately predict what programming language is being used by an author, it may be unlikely that others will be able to. As such, we recommend that if people spend more time creating robust readmes. Doing so could help increase the accuracy of models such as ours while also helping to increase the understanding of code by coders and non-coders alike. 
 
 ## Next Steps
-* **Gather More Data** - Our model may only work well with JavaScript and Python programing languages as our samples only focused on these two languages. We are confident that the methods we used to create our models would equally apply to other programing language; however, more data is required. 
-* **Refine Data Collections Method** - The method we employed to gather our data is fairly time consuming (can take up to 30mins to run!). We recommend looking for less time intensive ways to gather the data such as using GitHubs API to gather readmes. 
+* **Gather More Data** - Our model may only work well with JavaScript and Python programing languages as our samples only focused on these two languages. We suspect that the methods we used to create our models could be applied to other programing languages; however, more data is required. 
+* **Refine Data Collections Method** - The method we employed to gather our data is fairly time consuming (can take up to 30mins to run). We recommend looking for less time intensive ways to gather the data such as using GitHubs API to gather readmes. 
 * **Additional Modeling** - While our TFIDF model was fairly accurate at predicting which coding language was being used, it is always possible that another model would be even better. After more data has been gathered we believe that additional modeling should be conducted.
 
