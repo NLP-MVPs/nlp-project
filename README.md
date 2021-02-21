@@ -27,8 +27,6 @@ We will deliver the following:
   * A 5-minute presentation about the project, including slides.
   * A [Data Dictionary](#data-dictionary) for data used in this project.
   
-# Wrangle
-The following processes are used to wrangle the data into a useable form by first acquiring the data, then preparing the data, and finally pre-processing the data by spiting the data into train, validate, test sets and creating a few pandas series to conduct EDA on.
 
 ## Acquire
 To acquire the data, the team first needed to decide on a method for gathering our sample data. We originally choose to manually find repos belonging to various news organizations and then scrape their repos for 5 coding languages: python, JavaScript, HTML, PHP, and Ruby. However, this proved to be too small of a sample size to work with. We then changed our approach to focusing in on repositories that were determined to be either JavaScript or Python by GitHub. 
