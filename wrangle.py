@@ -74,7 +74,8 @@ def remove_stopwords(string, keep_words=['no', 'not'], exclude_words=[]):
 def wrangle_gitMDs():
     '''
     Uses the helper functions contained within the wrangle.py module on the gitMDs repo url list from the acquire.py module to create a unified data frame for exploration
-    * Applies a basic_body_clean, tokenizizatize, removestop_words, AND lemmatizes fuctions to the readme body text
+    * Drops duplicate rows since each row should contain a unique README
+    * Applies a basic_body_clean, tokenization, removestop_words, AND lemmatizes fuctions to the readme body text
       and returns the output as df['clean'].
     * Applies the basic_code_clean, tokenizizatize, and removestop_words fuctions to the top_code 
       and returns it as df['top_code_cleaned]
@@ -82,6 +83,7 @@ def wrangle_gitMDs():
     * Returns the gitMDs as a data frame
     '''    
     gitMDs = pd.DataFrame(get_gitmds())
+    gitMDs.drop_duplicates(inplace = True)
     gitMDs['clean'] = gitMDs['body'].apply(basic_body_clean).apply(tokenize).apply(remove_stopwords).apply(lemmatize)
     gitMDs['top_code_clean'] = gitMDs['top_code'].apply(basic_code_clean).apply(tokenize).apply(remove_stopwords)
     gitMDs[['top_code_clean', 'percentage']] = gitMDs['top_code_clean'].str.split(" ",expand=True)
