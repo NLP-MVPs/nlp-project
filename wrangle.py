@@ -71,9 +71,9 @@ def remove_stopwords(string, keep_words=['no', 'not'], exclude_words=[]):
     string_without_stopwords = ' '.join(filtered_words)
     return string_without_stopwords
 
-def prep_gitMDs():
+def wrangle_gitMDs():
     '''
-    Uses the helper functions contained within the prepare.py module on the gitMDs repo url list from the acquire.py module to create a unified data frame for exploration
+    Uses the helper functions contained within the wrangle.py module on the gitMDs repo url list from the acquire.py module to create a unified data frame for exploration
     * Applies a basic_body_clean, tokenizizatize, removestop_words, AND lemmatizes fuctions to the readme body text
       and returns the output as df['clean'].
     * Applies the basic_code_clean, tokenizizatize, and removestop_words fuctions to the top_code 
