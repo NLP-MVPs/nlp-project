@@ -21,7 +21,7 @@ The goal of this project is predict the primary code type used in a GitHub repos
 
 We will deliver the following:
   * An [acquire.py](https://github.com/NLP-MVPs/nlp-project/blob/main/acquire.py) module to gather that data.
-  * A [prepare.py](https://github.com/NLP-MVPs/nlp-project/blob/main/prepare.py) module to turn the raw data into a useable form.
+  * A [wrangle.py](https://github.com/NLP-MVPs/nlp-project/blob/main/wranngle.py) module to turn the raw data into a useable data frame.
   * A [json](gitMDsv2.json) copy of the data
   * A [Final Project notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/final_notebook.ipynb) that details every step of this project.
   * A 5-minute presentation about the project, including slides.
@@ -40,7 +40,8 @@ Each iteration of scrapping process produced a dictionary object that was then a
 Once the list of dictionaries created, we create a [gitMDv2.json](gitMDsv2.json) file, reads the list of dictionaries into a DataFrame, and finally returns the DataFrame. The full code and its explanation can be found at [acquire.py](https://github.com/NLP-MVPs/nlp-project/blob/main/acquire.py) in this repo.
 
 ## Prepare
-Once the data was acquire, the prepare.py module turns the data into a useable DataFrame by doing the following: 
+Once the data was acquired, the wrangle.py module turns the data into a useable DataFrame by doing the following: 
+* Drops duplicate rows since each row should be a unique README
 * Applies the basic_body_clean, tokenization, removestop_words, and lemmatizes functions to the readme body text
 and returns the output as gitMDs['clean'].
 * Applies the basic_code_clean, tokenizizatize, and removestop_words functions to the top_code and returns it as gitMDs['top_code_cleaned]
@@ -48,7 +49,7 @@ and returns the output as gitMDs['clean'].
 * Splits gitMDs into train, validate, and test data sets that is stratified on languages and is seeded using 333
 * Returns train, validate, and test sets
 
-The full code and it's explanation can be found at [prepare.py](https://github.com/NLP-MVPs/nlp-project/blob/main/prepare.py) within this repo.
+The full code and it's explanation can be found at [wrangle.py](https://github.com/NLP-MVPs/nlp-project/blob/main/wrangle.py) within this repo.
 
 ## Pre-processing
 After the data is prepared, we drop any columns we will not use in EDA, and then split the data into train, validate, and test sets within the [Final Project notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/final_notebook.ipynb). Lastly, we create a pandas series that contains all words each for python, JavaScript, and both to use in our EDA. The method we use to carry out this task is below.
