@@ -24,7 +24,7 @@ We will deliver the following:
   * A [wrangle.py](https://github.com/NLP-MVPs/nlp-project/blob/main/wranngle.py) module to turn the raw data into a useable data frame.
   * A [json](gitMDsv2.json) copy of the data
   * A [Final Project notebook](https://github.com/NLP-MVPs/nlp-project/blob/main/final_notebook.ipynb) that details every step of this project.
-  * A 5-minute presentation about the project, including slides.
+  * A 5-minute presentation about the project, including [slides](https://docs.google.com/presentation/d/1wNYOyxX93J5lUzoYLq9aLPqp2yUaqZrJBgksooCsT5s/edit?usp=sharing).
   * A [Data Dictionary](#data-dictionary) for data used in this project.
   
 
